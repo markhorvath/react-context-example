@@ -14,8 +14,8 @@ class Button extends React.Component {
     //USING THIS.CONTEXT IS USED WHEN WE ACCESS A SINGLE CONTEXT OBJECT IN A SINGLE COMPONENENT
 
     //helper func for Consumer
-    renderSubmit(value) {
-        return value === 'english' ? 'Submit' : 'Voorleggen';
+    renderSubmit(language) {
+        return language === 'english' ? 'Submit' : 'Voorleggen';
     }
 
     render() {
@@ -32,7 +32,7 @@ class Button extends React.Component {
             {(color) =>
                 <button className={`ui button ${color}`}>
                     <LanguageContext.Consumer>
-                        {(value) => this.renderSubmit(value)}
+                        {({ language }) => this.renderSubmit(language)}
                     </LanguageContext.Consumer>
                 </button>
             }
